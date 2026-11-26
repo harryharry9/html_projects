@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Journeys of Friendship to share a travel story, ask a question, or recommend a destination.">
+    <title>Contact | Journeys of Friendship</title>
+    <link rel="icon" href="favicon.ico" sizes="32x32" type="image/x-icon">
+    <link rel="stylesheet" href="city-styles.css">
+</head>
+<body>
+    <header>
+        <h1><span aria-hidden="true">✉️ </span>Let's Talk Travel</h1>
+        <p>Have a question about one of our city guides, a story of your own, or a destination we should explore? Send us a note and join the conversation.</p>
+    </header>
+
+    <nav aria-label="Main navigation">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#cities">Cities</a></li>
+            <li><a href="paris.html">Paris</a></li>
+            <li><a href="tokyo.html">Tokyo</a></li>
+            <li><a href="new-york.html">New York</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html" aria-current="page">Contact</a></li>
+            <li><a href="index.html#subscribe">Subscribe</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Share your story</h2>
+            <p class="form-note" id="form-note">This static website does not yet have a message-processing service connected. Submitting this form will not deliver your message.</p>
+
+            <form class="contact-form" method="post" aria-describedby="form-note">
+                <div>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" autocomplete="name" maxlength="100" required>
+                </div>
+                <div>
+                    <label for="email">Email address</label>
+                    <input type="email" id="email" name="email" autocomplete="email" maxlength="254" required>
+                </div>
+                <div>
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" maxlength="150" required>
+                </div>
+                <div>
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="7" maxlength="5000" required></textarea>
+                </div>
+                <button type="submit">Send message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div id="about-us">
+                <p class="footer-title">Journeys of Friendship</p>
+                <p>Travel stories, city guides, and shared adventures for curious travelers.</p>
+            </div>
+            <nav aria-label="Footer links">
+                <h2>Explore</h2>
+                <ul>
+                    <li><a href="#about-us">About Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="index.html#subscribe">Subscribe</a></li>
+                </ul>
+            </nav>
+            <nav aria-label="Social media">
+                <h2>Follow our travels</h2>
+                <ul>
+                    <li><a class="social-link" href="#" aria-label="Instagram profile link placeholder"><svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle><circle cx="17.5" cy="6.5" r="1.25" fill="currentColor"></circle></svg>Instagram (add profile link)</a></li>
+                    <li><a class="social-link" href="#" aria-label="YouTube profile link placeholder"><svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2.5" y="5" width="19" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M10 8.5v7l6-3.5z" fill="currentColor"></path></svg>YouTube (add profile link)</a></li>
+                    <li><a class="social-link" href="#" aria-label="Pinterest profile link placeholder"><svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"></circle><text x="12" y="18" text-anchor="middle" font-family="Georgia, serif" font-size="17" font-weight="700" fill="currentColor">P</text></svg>Pinterest (add profile link)</a></li>
+                </ul>
+            </nav>
+            <div>
+                <h2>Get in touch</h2>
+                <p>Questions, collaborations, or a travel tip to share?</p>
+                <a href="contact.html">Send us a message</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Journeys of Friendship. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

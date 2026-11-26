@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Travel stories, favorite places, and shared adventures from friends exploring the world together.">
+    <title>Journeys of Friendship | Exploring the World Together</title>
+    <link rel="icon" href="favicon.ico" sizes="32x32" type="image/x-icon">
+    <link rel="stylesheet" href="city-styles.css">
+    <style>
+        :root {
+            color-scheme: light;
+            font-family: Georgia, "Times New Roman", serif;
+            color: #23332f;
+            background: #f7f5ef;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        header {
+            padding: 4rem 1.5rem 3.5rem;
+            text-align: center;
+            background: #e8eee8;
+        }
+
+        header h1 {
+            max-width: 760px;
+            margin: 0 auto 1rem;
+            color: #23483e;
+            font-size: clamp(2.2rem, 6vw, 4rem);
+            line-height: 1.1;
+        }
+
+        header p {
+            max-width: 680px;
+            margin: 0 auto;
+            font-size: 1.15rem;
+            line-height: 1.7;
+        }
+
+        body > nav {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            background: #23483e;
+        }
+
+        body > nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.25rem 1.75rem;
+            margin: 0;
+            padding: 1rem;
+            list-style: none;
+        }
+
+        body > nav a {
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-decoration: none;
+        }
+
+        body > nav a:hover,
+        body > nav a:focus-visible {
+            text-decoration: underline;
+            text-underline-offset: 0.25rem;
+        }
+
+        main {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        section {
+            scroll-margin-top: 5rem;
+        }
+
+        section h2 {
+            margin: 0 0 0.75rem;
+            color: #23483e;
+            font-size: clamp(1.7rem, 4vw, 2.4rem);
+            text-align: center;
+        }
+
+        .section-intro {
+            margin: 0 auto 2rem;
+            max-width: 650px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .city-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr));
+            gap: 1.5rem;
+        }
+
+        figure {
+            overflow: hidden;
+            margin: 0;
+            border-radius: 0.75rem;
+            background: #fff;
+            box-shadow: 0 0.5rem 1.5rem rgb(35 51 47 / 10%);
+        }
+
+        figure img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+        }
+
+        figcaption {
+            padding: 1rem 1.15rem 1.25rem;
+            line-height: 1.55;
+        }
+
+        figcaption strong {
+            display: block;
+            margin-bottom: 0.25rem;
+            color: #23483e;
+            font-size: 1.2rem;
+        }
+
+        figcaption a {
+            color: inherit;
+            text-decoration-color: #789187;
+            text-underline-offset: 0.2rem;
+        }
+
+        .note {
+            margin-top: 3rem;
+            padding: 1.5rem;
+            border-top: 1px solid #d5ded6;
+            text-align: center;
+        }
+
+        .note p {
+            margin: 0.5rem auto;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+    </style>
+</head>
+<body>
+    <header id="home">
+        <h1><span aria-hidden="true">🌍 </span>Journeys of Friendship: Exploring the World Together</h1>
+        <p>Every trip becomes a story when shared with friends. Come along as we wander new streets, savor local flavors, and find the small moments that make each city unforgettable.</p>
+    </header>
+
+    <nav aria-label="Main navigation">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#cities">Cities</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#subscribe">Subscribe</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="cities" aria-labelledby="cities-heading">
+            <h2 id="cities-heading"><span aria-hidden="true">🧭 </span>Three cities, countless memories</h2>
+            <p class="section-intro">A few favorite views from our travels—each one a reminder that the best discoveries are even better together.</p>
+
+            <div class="city-gallery">
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="The Eiffel Tower rising above the rooftops of Paris" width="1000" height="750">
+                    <figcaption><strong><a href="paris.html">Paris, France</a></strong>Long walks, warm pastries, and a little magic at every turn.</figcaption>
+                </figure>
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1540959733332-eab4de601fe6?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="Tokyo city lights and skyscrapers at dusk" width="1000" height="750" loading="lazy">
+                    <figcaption><strong><a href="tokyo.html">Tokyo, Japan</a></strong>Neon-lit evenings, quiet gardens, and new favorites to taste.</figcaption>
+                </figure>
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="The New York City skyline viewed across the water" width="1000" height="750" loading="lazy">
+                    <figcaption><strong><a href="new-york.html">New York City, USA</a></strong>Big-city energy, neighborhood finds, and stories that stay with us.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="note" id="subscribe" aria-labelledby="subscribe-heading">
+            <h2 id="subscribe-heading"><span aria-hidden="true">✉️ </span>Subscribe</h2>
+            <p>Get new city stories, travel tips, and shared adventures in your inbox.</p>
+            <p class="form-note" id="subscription-note">This static website does not yet have a mailing-list service connected. Submitting this form will not subscribe you.</p>
+            <form class="newsletter-form" method="post" aria-describedby="subscription-note">
+                <div>
+                    <label for="subscriber-email">Email address</label>
+                    <input type="email" id="subscriber-email" name="email" autocomplete="email" placeholder="Enter your email address" maxlength="254" required>
+                </div>
+                <div class="newsletter-consent">
+                    <input type="checkbox" id="newsletter-consent" name="consent" value="yes" required>
+                    <label for="newsletter-consent">I agree to receive email updates about new travel stories and tips.</label>
+                </div>
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div id="about-us">
+                <p class="footer-title">Journeys of Friendship</p>
+                <p>Travel stories, city guides, and shared adventures for curious travelers.</p>
+            </div>
+            <nav aria-label="Footer links">
+                <h2>Explore</h2>
+                <ul>
+                    <li><a href="#about-us">About Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#subscribe">Subscribe</a></li>
+                </ul>
+            </nav>
+            <nav aria-label="Social media">
+                <h2>Follow our travels</h2>
+                <ul>
+                    <li><a class="social-link" href="#" aria-label="Instagram profile link placeholder"><svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle><circle cx="17.5" cy="6.5" r="1.25" fill="currentColor"></circle></svg>Instagram (add profile link)</a></li>
+                    <li><a class="social-link" href="#" aria-label="YouTube profile link placeholder"><svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2.5" y="5" width="19" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M10 8.5v7l6-3.5z" fill="currentColor"></path></svg>YouTube (add profile link)</a></li>
+                    <li><a class="social-link" href="#" aria-label="Pinterest profile link placeholder"><svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"></circle><text x="12" y="18" text-anchor="middle" font-family="Georgia, serif" font-size="17" font-weight="700" fill="currentColor">P</text></svg>Pinterest (add profile link)</a></li>
+                </ul>
+            </nav>
+            <div>
+                <h2>Get in touch</h2>
+                <p>Questions, collaborations, or a travel tip to share?</p>
+                <a href="contact.html">Send us a message</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Journeys of Friendship. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
