@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Resume of Obura Harizon, Computer Science graduate and software developer.">
+    <title>Obura Harizon | Software Developer</title>
+    <style>
+        :root {
+            --ink: #172033;
+            --muted: #667085;
+            --accent: #2563eb;
+            --accent-dark: #1e40af;
+            --line: #dfe5ef;
+            --paper: #ffffff;
+            --wash: #f4f7fb;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 10% 10%, rgba(37, 99, 235, 0.08), transparent 24rem),
+                var(--wash);
+            font-family: "Segoe UI", Arial, sans-serif;
+            line-height: 1.48;
+        }
+
+        .resume {
+            width: min(1000px, calc(100% - 32px));
+            margin: 32px auto;
+            background: var(--paper);
+            box-shadow: 0 18px 50px rgba(23, 32, 51, 0.12);
+        }
+
+        .topbar {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 28px;
+            align-items: center;
+            padding: 42px 48px 36px;
+            color: white;
+            background: linear-gradient(135deg, #172033 0%, #1d3557 58%, #2563eb 130%);
+        }
+
+        .eyebrow {
+            margin: 0 0 7px;
+            color: #bfdbfe;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.2rem, 6vw, 4rem);
+            line-height: 1;
+            letter-spacing: -0.035em;
+        }
+
+        .role {
+            margin: 12px 0 0;
+            color: #e7efff;
+            font-size: 1.12rem;
+            font-weight: 650;
+        }
+
+        .contact {
+            min-width: 230px;
+            margin: 0;
+            padding: 18px;
+            border-left: 3px solid #60a5fa;
+            background: rgba(255, 255, 255, 0.08);
+            list-style: none;
+        }
+
+        .contact li {
+            margin: 5px 0;
+            font-size: 0.9rem;
+        }
+
+        .contact a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+        }
+
+        .sidebar {
+            padding: 36px 32px 40px 48px;
+            border-right: 1px solid var(--line);
+            background: #fbfcfe;
+        }
+
+        .content {
+            padding: 36px 48px 44px 40px;
+        }
+
+        section {
+            margin-bottom: 32px;
+        }
+
+        section:last-child {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 0 16px;
+            color: var(--accent-dark);
+            font-size: 0.82rem;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        h2::after {
+            content: "";
+            height: 1px;
+            flex: 1;
+            background: var(--line);
+        }
+
+        p {
+            margin: 0 0 10px;
+        }
+
+        .summary {
+            color: #3f4a5e;
+            font-size: 0.96rem;
+        }
+
+        .skill-list,
+        .detail-list,
+        .project-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 9px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .skill-list li:last-child {
+            border-bottom: 0;
+        }
+
+        .skill-list strong {
+            display: block;
+            margin-bottom: 2px;
+            color: var(--ink);
+            font-size: 0.88rem;
+        }
+
+        .skill-list span {
+            color: var(--muted);
+            font-size: 0.86rem;
+        }
+
+        .education {
+            margin: 0;
+        }
+
+        .education strong {
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .education span {
+            display: block;
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        .job-head {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 8px;
+        }
+
+        .job-head strong {
+            font-size: 1.02rem;
+        }
+
+        .job-head span,
+        .project-list small {
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        .detail-list {
+            margin: 0 0 0 18px;
+            list-style: disc;
+        }
+
+        .detail-list li {
+            margin: 7px 0;
+            padding-left: 3px;
+            color: #3f4a5e;
+        }
+
+        .project-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .project-list li {
+            min-height: 104px;
+            padding: 15px;
+            border: 1px solid var(--line);
+            border-top: 3px solid #93b4eb;
+            background: #fff;
+        }
+
+        .project-list strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .project-list span {
+            display: block;
+            color: #4b5565;
+            font-size: 0.86rem;
+        }
+
+        @media (max-width: 720px) {
+            .resume {
+                width: 100%;
+                margin: 0;
+            }
+
+            .topbar {
+                grid-template-columns: 1fr;
+                padding: 34px 24px 28px;
+            }
+
+            .contact {
+                min-width: 0;
+                width: 100%;
+            }
+
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                border-right: 0;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .sidebar,
+            .content {
+                padding: 28px 24px;
+            }
+
+            .project-list {
+                grid-template-columns: 1fr;
+            }
+
+            .job-head {
+                display: block;
+            }
+
+            .job-head span {
+                display: block;
+                margin-top: 2px;
+            }
+        }
+
+        @media print {
+            @page {
+                size: A4;
+                margin: 0;
+            }
+
+            body {
+                background: white;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+
+            .resume {
+                width: 210mm;
+                min-height: 297mm;
+                margin: 0;
+                box-shadow: none;
+            }
+
+            .topbar {
+                padding: 10mm 12mm 9mm;
+            }
+
+            .sidebar {
+                padding: 9mm 8mm 10mm 12mm;
+            }
+
+            .content {
+                padding: 9mm 12mm 10mm 10mm;
+            }
+
+            section {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="resume">
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">Curriculum Vitae</p>
+                <h1>Obura Harizon</h1>
+                <p class="role">Software Developer &amp; Computer Security and Forensics Graduate</p>
+            </div>
+            <ul class="contact" aria-label="Contact information">
+                <li><a href="mailto:oburaharizon@gmail.com">oburaharizon@gmail.com</a></li>
+                <li><a href="tel:+254703697475">+254 703 697 475</a></li>
+                <li>Bondo, Kenya</li>
+            </ul>
+        </header>
+
+        <div class="layout">
+            <aside class="sidebar">
+                <section>
+                    <h2>Profile</h2>
+                    <p class="summary">Computer Science graduate with hands-on experience in web application development, React, Node.js, and database management. Collaborative, detail-oriented, and focused on building reliable digital solutions.</p>
+                </section>
+
+                <section>
+                    <h2>Skills</h2>
+                    <ul class="skill-list">
+                        <li>
+                            <strong>Languages</strong>
+                            <span>Python, JavaScript, Java</span>
+                        </li>
+                        <li>
+                            <strong>Web Development</strong>
+                            <span>HTML, CSS, React, Node.js</span>
+                        </li>
+                        <li>
+                            <strong>Databases</strong>
+                            <span>MySQL, MongoDB, Firebase</span>
+                        </li>
+                        <li>
+                            <strong>Tools</strong>
+                            <span>Git, GitHub</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Education</h2>
+                    <p class="education">
+                        <strong>BSc Computer Science</strong>
+                        <span>University of Nairobi</span>
+                        <span>2020 - 2024</span>
+                    </p>
+                </section>
+            </aside>
+
+            <article class="content">
+                <section>
+                    <h2>Experience</h2>
+                    <div class="job-head">
+                        <strong>Software Developer Intern</strong>
+                        <span>Tech Solutions Ltd. | 2023 - Present</span>
+                    </div>
+                    <ul class="detail-list">
+                        <li>Develop and maintain responsive web applications using React and Node.js.</li>
+                        <li>Collaborate with cross-functional teams to design and deliver new product features.</li>
+                        <li>Participate in code reviews and implement improvements to code quality and maintainability.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Selected Projects</h2>
+                    <ul class="project-list">
+                        <li>
+                            <strong>Personal Portfolio</strong>
+                            <span>Responsive personal website built with HTML, CSS, and JavaScript.</span>
+                        </li>
+                        <li>
+                            <strong>Task Management App</strong>
+                            <span>Task application developed using React and Firebase.</span>
+                        </li>
+                        <li>
+                            <strong>E-commerce Platform</strong>
+                            <span>Shopping platform with authentication and payment integration.</span>
+                        </li>
+                        <li>
+                            <strong>Availability</strong>
+                            <span>Open to software development opportunities and professional collaboration.</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>References</h2>
+                    <p>Professional references available upon request.</p>
+                </section>
+            </article>
+        </div>
+    </main>
+</body>
+</html>
