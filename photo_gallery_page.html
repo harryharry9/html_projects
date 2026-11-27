@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Gallery</title>
+  <style>
+    :root {
+      --cream: #f7f3ea;
+      --ink: #1f2933;
+      --muted: #7a817b;
+      --accent: #b56b45;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1180px;
+      margin: auto;
+      padding: 28px 24px 18px;
+      border-bottom: 1px solid #d8d1c3;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(24px, 4vw, 38px);
+      letter-spacing: 1px;
+    }
+
+    nav { display: flex; gap: 24px; }
+
+    nav a {
+      color: var(--ink);
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 32px 24px 48px;
+    }
+
+    .intro {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      margin-bottom: 22px;
+    }
+
+    .intro p {
+      max-width: 430px;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .gallery {
+      columns: 3;
+      column-gap: 18px;
+    }
+
+    figure {
+      break-inside: avoid;
+      margin: 0 0 18px;
+      overflow: hidden;
+      background: #e8e1d5;
+      position: relative;
+    }
+
+    figure img {
+      width: 100%;
+      display: block;
+      transition: transform 500ms ease, filter 300ms ease;
+    }
+
+    figure:hover img {
+      transform: scale(1.025);
+      filter: brightness(.82);
+    }
+
+    figcaption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 38px 18px 16px;
+      color: white;
+      font-size: 14px;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: 300ms ease;
+      background: linear-gradient(transparent, rgba(0,0,0,.72));
+    }
+
+    figure:hover figcaption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--muted);
+      border-top: 1px solid #d8d1c3;
+      font-size: 13px;
+    }
+
+    @media (max-width: 800px) {
+      .gallery { columns: 2; }
+      .intro { align-items: start; }
+    }
+
+    @media (max-width: 520px) {
+      header { align-items: start; }
+      nav { gap: 12px; padding-top: 6px; }
+      .gallery { columns: 1; }
+      .intro { display: block; }
+      .intro p { margin-top: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Frame &amp; Field</h1>
+    <nav aria-label="Main navigation">
+      <a href="#gallery">Gallery</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro" id="about">
+      <h2>Selected works</h2>
+      <p>A quiet collection of places, textures, and moments captured along the way.</p>
+    </section>
+
+    <section class="gallery" id="gallery" aria-label="Photo gallery">
+      <figure>
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=85" alt="Sunlit cabin beside a mountain lake">
+        <figcaption>Mountain Morning · 2025</figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=85" alt="Wooden house in a green mountain valley">
+        <figcaption>Still Waters · 2024</figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=85" alt="Traveler overlooking a dramatic landscape">
+        <figcaption>Open Country · 2025</figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=85" alt="Sunlight passing through a dense forest">
+        <figcaption>Among the Pines · 2023</figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=85" alt="Small figure beneath a tall mountain">
+        <figcaption>Highland Air · 2024</figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=900&q=85" alt="Golden countryside at sunrise">
+        <figcaption>First Light · 2025</figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1439853949127-fa647821eba0?auto=format&fit=crop&w=900&q=85" alt="Turquoise lake beneath rocky cliffs">
+        <figcaption>Blue Distance · 2023</figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=85" alt="Empty road crossing a desert landscape">
+        <figcaption>Westward · 2024</figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.unsplash-" alt="">
+        <figcaption>Coastal Silence · 2025</figcaption>
+      </figure>
+    </section>
+  </main>
+
+  <footer>© 2026 Frame &amp; Field Photography</footer>
+</body>
+</html>
