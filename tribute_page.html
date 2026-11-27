@@ -439,13 +439,34 @@
             transform: rotate(45deg);
         }
 
-        .surprise-message {
+        .surprise-figure {
             margin: 0;
-            padding: 0 15px 15px;
+            padding: 0 12px 12px;
+        }
+
+        .surprise-figure a {
+            display: block;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .surprise-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: transform 220ms ease;
+        }
+
+        .surprise-figure a:hover img {
+            transform: scale(1.035);
+        }
+
+        .surprise-figure figcaption {
+            margin-top: 8px;
             color: var(--muted);
             font-family: Georgia, "Times New Roman", serif;
-            font-size: 0.9rem;
-            line-height: 1.7;
+            font-size: 0.82rem;
+            text-align: center;
         }
 
         .signature {
@@ -702,7 +723,12 @@
                 </div>
                 <details class="little-surprise">
                     <summary>Open a little surprise</summary>
-                    <p class="surprise-message">If life is a journey, Sonia, I'm grateful that you're my partner along the way. I love you—just as you are.</p>
+                    <figure class="surprise-figure">
+                        <a href="my_love.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open the full-size photo in a new tab">
+                            <img src="my_love.jpg" alt="A couple sharing a close moment together." loading="lazy" decoding="async">
+                        </a>
+                        <figcaption>A little memory for you, Sonia.</figcaption>
+                    </figure>
                 </details>
             </aside>
         </article>
