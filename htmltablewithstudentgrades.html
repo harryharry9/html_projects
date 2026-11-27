@@ -727,7 +727,7 @@
                     <span class="brand-mark" aria-hidden="true">G</span>
                     <span>CLASSROOM NOTES</span>
                 </div>
-                <span class="term-pill">Class overview <span aria-hidden="true">·</span> 20 students</span>
+                <span class="term-pill">Class overview <span aria-hidden="true">·</span> <span id="class-total">20</span> students</span>
             </div>
             <p class="eyebrow">Progress, at a glance</p>
             <h1>Student <span>Grades</span></h1>
@@ -739,19 +739,19 @@
         <section class="stats" aria-label="Grade summary">
             <article class="stat-card">
                 <span class="stat-label">Students</span>
-                <strong class="stat-value">20 <small>in class</small></strong>
+                <strong class="stat-value"><span id="total-students">20</span> <small>in class</small></strong>
             </article>
             <article class="stat-card">
                 <span class="stat-label">A-range grades</span>
-                <strong class="stat-value">8 <small>students</small></strong>
+                <strong class="stat-value"><span id="a-students">8</span> <small>students</small></strong>
             </article>
             <article class="stat-card">
                 <span class="stat-label">B-range grades</span>
-                <strong class="stat-value">8 <small>students</small></strong>
+                <strong class="stat-value"><span id="b-students">8</span> <small>students</small></strong>
             </article>
             <article class="stat-card">
                 <span class="stat-label">C-range grades</span>
-                <strong class="stat-value">4 <small>students</small></strong>
+                <strong class="stat-value"><span id="c-students">4</span> <small>students</small></strong>
             </article>
         </section>
 
@@ -762,16 +762,16 @@
                 <p class="overview-copy">The chart groups the existing letter grades into A, B, and C ranges. It shows the class distribution without converting grades into percentages.</p>
             </div>
             <div class="chart-wrap">
-                <div class="donut" role="img" aria-label="Grade distribution: 8 students in the A range, 8 in the B range, and 4 in the C range.">
+                <div class="donut" id="grade-distribution" role="img" aria-label="Grade distribution: 8 students in the A range, 8 in the B range, and 4 in the C range.">
                     <div class="donut-center" aria-hidden="true">
-                        <strong>20</strong>
+                        <strong id="chart-total">20</strong>
                         <span>students</span>
                     </div>
                 </div>
                 <ul class="legend" aria-label="Grade distribution">
-                    <li><span class="legend-dot a-band" aria-hidden="true"></span><span>A range <strong>8</strong></span></li>
-                    <li><span class="legend-dot b-band" aria-hidden="true"></span><span>B range <strong>8</strong></span></li>
-                    <li><span class="legend-dot c-band" aria-hidden="true"></span><span>C range <strong>4</strong></span></li>
+                    <li><span class="legend-dot a-band" aria-hidden="true"></span><span>A range <strong id="a-legend-count">8</strong></span></li>
+                    <li><span class="legend-dot b-band" aria-hidden="true"></span><span>B range <strong id="b-legend-count">8</strong></span></li>
+                    <li><span class="legend-dot c-band" aria-hidden="true"></span><span>C range <strong id="c-legend-count">4</strong></span></li>
                 </ul>
             </div>
         </section>
@@ -835,7 +835,7 @@
                 </table>
             </div>
             <div class="table-footer">
-                <p>Grades are shown as provided; grading criteria may vary by instructor.</p>
+                <p>The original 20 records are retained; added “Sample Student” entries are fictional demo data.</p>
                 <p id="result-summary">Showing all 20 students</p>
             </div>
         </section>
@@ -851,12 +851,64 @@
     <script>
         const searchInput = document.querySelector("#student-search");
         const filterButtons = [...document.querySelectorAll(".filter-button")];
-        const studentRows = [...document.querySelectorAll("#student-rows tr[data-band]")];
+        const studentTable = document.querySelector("#student-rows");
         const emptyRow = document.querySelector("#empty-row");
         const visibleCount = document.querySelector("#visible-count");
         const resultSummary = document.querySelector("#result-summary");
         const resultStatus = document.querySelector("#result-status");
+        const sampleGrades = [
+            { grade: "A+", band: "a" },
+            { grade: "A", band: "a" },
+            { grade: "A-", band: "a" },
+            { grade: "B+", band: "b" },
+            { grade: "B", band: "b" },
+            { grade: "B-", band: "b" },
+            { grade: "C+", band: "c" },
+            { grade: "C", band: "c" }
+        ];
         let activeFilter = "all";
+
+        for (let index = 0; index < 80; index += 1) {
+            const sample = sampleGrades[index % sampleGrades.length];
+            const row = document.createElement("tr");
+            const nameCell = document.createElement("th");
+            const gradeCell = document.createElement("td");
+            const badge = document.createElement("span");
+
+            row.dataset.band = sample.band;
+            nameCell.scope = "row";
+            nameCell.textContent = `Sample Student ${String(index + 21).padStart(3, "0")}`;
+            badge.className = `grade-badge grade-${sample.band}`;
+            badge.textContent = sample.grade;
+            gradeCell.append(badge);
+            row.append(nameCell, gradeCell);
+            studentTable.insertBefore(row, emptyRow);
+        }
+
+        const studentRows = [...document.querySelectorAll("#student-rows tr[data-band]")];
+        const gradeCounts = studentRows.reduce((counts, row) => {
+            counts[row.dataset.band] += 1;
+            return counts;
+        }, { a: 0, b: 0, c: 0 });
+        const totalStudents = studentRows.length;
+        const aShare = gradeCounts.a / totalStudents * 100;
+        const bShare = (gradeCounts.a + gradeCounts.b) / totalStudents * 100;
+
+        document.querySelector("#class-total").textContent = totalStudents;
+        document.querySelector("#total-students").textContent = totalStudents;
+        document.querySelector("#a-students").textContent = gradeCounts.a;
+        document.querySelector("#b-students").textContent = gradeCounts.b;
+        document.querySelector("#c-students").textContent = gradeCounts.c;
+        document.querySelector("#chart-total").textContent = totalStudents;
+        document.querySelector("#a-legend-count").textContent = gradeCounts.a;
+        document.querySelector("#b-legend-count").textContent = gradeCounts.b;
+        document.querySelector("#c-legend-count").textContent = gradeCounts.c;
+        document.querySelector("#grade-distribution").style.background =
+            `conic-gradient(#4f9869 0 ${aShare}%, #e6b45e ${aShare}% ${bShare}%, #db9273 ${bShare}% 100%)`;
+        document.querySelector("#grade-distribution").setAttribute(
+            "aria-label",
+            `Grade distribution: ${gradeCounts.a} students in the A range, ${gradeCounts.b} in the B range, and ${gradeCounts.c} in the C range.`
+        );
 
         function updateStudents() {
             const query = searchInput.value.trim().toLocaleLowerCase();
@@ -891,6 +943,8 @@
                 updateStudents();
             });
         });
+
+        updateStudents();
     </script>
 </body>
 </html>
